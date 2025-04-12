@@ -27,6 +27,10 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'auth',
+    loadChildren: () => import('../login/login.module').then(m => m.LoginModule)
+  },
+  {
     path: '',
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'

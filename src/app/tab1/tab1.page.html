@@ -6,12 +6,28 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-loading
+  [isOpen]="carregando"
+  message="Carregando..."
+/>
+
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div *ngIf="!logado" id="login">
+    <ion-button [routerLink]="['/auth']">Logar</ion-button> <!-- Botão para ir à tela de login -->
+  </div>
+
+  <div *ngIf="!logado" id="logado">
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-button (click)="apagarLogin()">teste getlogin</ion-button>
+
+
+  </div>
+
 
   <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>
+
+
