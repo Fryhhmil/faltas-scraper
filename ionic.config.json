@@ -1,0 +1,8 @@
+{
+  "name": "FaltasScraper",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "881274d5"
+}
