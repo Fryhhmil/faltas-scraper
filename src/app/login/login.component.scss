@@ -1,0 +1,45 @@
+#btn-voltar {
+  color: rgb(47, 81, 230);
+}
+
+#conteudo {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#conteudo h5 {
+  color: gainsboro;
+  font-size: small;
+  margin-top: 2rem;
+}
+
+#login-form {
+  flex-grow: 1;
+  display: flex;
+  // position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+#login-form ion-item {
+  width: 100%;
+  display: flex;
+}
+
+#login-form ion-button {
+  display: flex;
+  margin-top: 30px;
+  font-weight: 600;
+  width: 100%;
+}
+
+
+

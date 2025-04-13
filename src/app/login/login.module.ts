@@ -6,6 +6,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { LoginComponent } from './login.component';
     FormsModule,
     ExploreContainerComponentModule,
     LoginRoutingModule,
+    ReactiveFormsModule,
   ],
   declarations: [LoginComponent]
 })

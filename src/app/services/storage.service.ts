@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import { LoginForm } from '../model/login';
+import { FaltaDTO } from '../model/faltas';
 
 
 @Injectable({
@@ -28,14 +29,14 @@ export class StorageService {
   }
 
   async removeLogin() {
-    await this._storage?.remove('auth_token');
+    await this._storage?.remove('login');
   }
 
-  async setData(data: any) {
+  async setData(data: FaltaDTO[]) {
     await this._storage?.set('data', data);
   }
 
-  async getData() {
+  async getData(): Promise<FaltaDTO[]> {
     return await this._storage?.get('data');
   }
 }
