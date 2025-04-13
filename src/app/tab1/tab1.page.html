@@ -12,9 +12,6 @@
   message="Carregando..."
   />
 
-  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
   <!-- Não logado -->
   <div *ngIf="!logado" id="login">
     <h2>Faça login para ver as faltas</h2>
@@ -47,12 +44,7 @@
       </tbody>
     </table>
 
-    <!-- <ion-button (click)="apagarLogin()">teste getlogin</ion-button> -->
-
   </div>
-
-
-  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
 </ion-content>
 
 

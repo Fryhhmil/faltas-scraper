@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, debounceTime, distinctUntilChanged, throwError } from 'rxjs';
 import { LoginForm } from '../model/login';
-import { IonNav, IonNavLink, NavController } from '@ionic/angular';
+import { IonNav, IonNavLink, LoadingController, NavController } from '@ionic/angular';
 
 
 @Component({
@@ -18,14 +18,20 @@ import { IonNav, IonNavLink, NavController } from '@ionic/angular';
 export class LoginComponent  implements OnInit {
 
   cadastroForm: FormGroup;
-  carregando = false;
+  carregando = true;
 
   ngOnInit() {
     this.verificaLogado();
     this.carregando = false;
   }
 
-  constructor(private router: Router, private fb: FormBuilder, private loginService: LoginService, private storageService :StorageService) {
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private storageService :StorageService,
+    private loadingCtrl: LoadingController
+  ) {
     this.cadastroForm = this.fb.group({
       cpf: ['', Validators.required],
       senha: ['', Validators.required]
@@ -33,9 +39,16 @@ export class LoginComponent  implements OnInit {
   }
 
   // Exemplo de ação de login
-  login() {
-    if (this.carregando) return;
+  async login() {
+    if (this.carregando == true) return;
+
     this.carregando = true;
+    const loading = await this.loadingCtrl.create({
+      message: 'Carregando...',
+      spinner: 'crescent'
+    });
+    await loading.present();
+
     const value = this.cadastroForm.value;
 
     this.loginService.login(value).pipe(
@@ -50,12 +63,14 @@ export class LoginComponent  implements OnInit {
       this.storageService.setLogin(value);
       this.buscarFaltas(retorno);
       },
-      complete: () => {
+      complete: async () => {
         this.router.navigate(['/']);
+        await loading.dismiss();
         this.carregando = false;
+      }, error: async () => {
+        await loading.dismiss();
       }
     });
-    this.carregando = false;
     // window.location.reload();
   }
 

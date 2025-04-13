@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { StorageService } from '../services/storage.service';
 import { LoginForm } from '../model/login';
-import { IonNav, ViewWillEnter } from '@ionic/angular';
-import { LoginComponent } from '../login/login.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { catchError, filter, throwError } from 'rxjs';
 import { FaltaDTO } from '../model/faltas';
@@ -41,17 +39,6 @@ export class Tab1Page implements OnInit {
     } else {
       this.logado = false;
     }
-  }
-
-
-  async mostrarLogin() {
-    const token = await this.storageService.getLogin();
-    console.log('Token recuperado:', token);
-  }
-
-  async apagarLogin() {
-    await this.storageService.removeLogin();
-    console.log('Token removido!');
   }
 
   handleRefresh(event: CustomEvent) {
@@ -109,14 +96,5 @@ export class Tab1Page implements OnInit {
       }
     });
   }
-
-  // irParaLogin() {
-  //   if (this.nav) {
-  //     this.nav.push(LoginComponent);
-  //     console.log(this.nav);
-  //   } else {
-  //     console.error('IonNav não encontrado!');
-  //   }
-  // }
 
 }

@@ -9,8 +9,9 @@
 
 <ion-content>
   <ion-loading
-  [isOpen]="carregando"
-  message="Carregando..."
+    *ngIf="carregando"
+    [isOpen]="true"
+    message="Carregando..."
   />
 
   <div id="conteudo">
@@ -18,11 +19,11 @@
     <h1>Digite suas informações</h1>
 
     <form id="login-form" [formGroup]="cadastroForm" (ngSubmit)="login()">
-      <ion-item>
+      <ion-item class="input-border">
         <ion-input formControlName="cpf" label="CPF:" type="number" placeholder="000.000.000-00"></ion-input>
       </ion-item>
 
-      <ion-item>
+      <ion-item class="input-border baixo">
         <ion-input formControlName="senha" label="Senha:" type="password" ></ion-input>
       </ion-item>
 

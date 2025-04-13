@@ -41,5 +41,10 @@
   width: 100%;
 }
 
+.input-border {
+  border-radius: 5px 5px 0 0;
+}
 
-
+.input-border.baixo {
+  border-radius: 0 0 5px 5px;
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-tab3',
@@ -8,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor(
+    private storageService: StorageService,
+  ) {}
+
+  async apagarLogin() {
+    await this.storageService.removeLogin();
+    console.log('Token removido!');
+  }
 
 }
