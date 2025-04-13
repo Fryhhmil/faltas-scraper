@@ -1,4 +1,4 @@
 export const environment = {
-  URL_BASE: 'http://localhost:8080',
+  URL_BASE: 'https://totvsscrap.ddns.net:8080',
   production: true
 };
