@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  totstvWeb-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: totstvWeb-container
+    ports:
+      - "25565:80"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    restart: always
