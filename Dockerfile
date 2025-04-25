@@ -10,6 +10,9 @@ RUN npm install
 
 RUN ng build --configuration=production
 
+# DEBUG: listar conteúdo gerado
+# RUN echo "===> Conteúdo de /app/dist/faltas-scraper/browser" && ls -R /app/dist/faltas-scraper/browser
+
 #### FIM DO BUILD #####
 
 FROM nginx:1.17.4
@@ -20,8 +23,8 @@ RUN ln -fs /usr/share/zoneinfo/America/Fortaleza /etc/localtime && ls -l /etc/lo
 
 # Copy the app
 WORKDIR /app
-COPY --from=node-to-build /app/dist/faltas-scraper/browser /usr/share/nginx/html
+COPY --from=node-to-build /app/www /usr/share/nginx/html
 
-COPY --from=node-to-build /app/dist/faltas-scraper/browser/assets/default.conf /etc/nginx/conf.d/
+COPY --from=node-to-build /app/www/assets/default.conf /etc/nginx/conf.d/
 
 EXPOSE 80
