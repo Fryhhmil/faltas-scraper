@@ -20,8 +20,8 @@ RUN ln -fs /usr/share/zoneinfo/America/Fortaleza /etc/localtime && ls -l /etc/lo
 
 # Copy the app
 WORKDIR /app
-COPY --from=node-to-build /app/dist/faltas-scrapper/browser /usr/share/nginx/html
+COPY --from=node-to-build /app/dist/faltas-scraper/browser /usr/share/nginx/html
 
-COPY --from=node-to-build /app/dist/faltas-scrapper/browser/assets/default.conf /etc/nginx/conf.d/
+COPY --from=node-to-build /app/dist/faltas-scraper/browser/assets/default.conf /etc/nginx/conf.d/
 
 EXPOSE 80
