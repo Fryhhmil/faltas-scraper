@@ -1,5 +1,5 @@
 services:
-  totstvWeb-app:
+  totstvweb-app:
     build:
       context: .
       dockerfile: Dockerfile
