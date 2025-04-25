@@ -24,6 +24,7 @@ export class Tab1Page implements OnInit {
     ).subscribe((event: NavigationEnd) => {
       if (event.urlAfterRedirects === '/tabs/tab1') {
         this.verificaLogado();
+        this.carregarDados();
       }
     });
   }
