@@ -8,8 +8,8 @@
 
 <ion-content [fullscreen]="true">
   <ion-loading
-  [isOpen]="carregando"
-  message="Carregando..."
+    [isOpen]="carregando"
+    message="Carregando..."
   />
 
   <!-- Não logado -->
@@ -24,25 +24,39 @@
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
 
-    <table class="content-table" style="width: 100%;">
-      <thead>
-        <tr>
-          <th>Materia</th>
-          <th>Faltas</th>
-          <th>Pode Faltar</th>
-          <th>Percentual</th>
-        </tr>
-      </thead>
+    <div class="card-container">
+      <ion-card class="custom-card">
+        <ion-card-header>
+          <ion-card-title>Segunda</ion-card-title>
+          <ion-card-subtitle>────────</ion-card-subtitle>
+        </ion-card-header>
 
-      <tbody>
-        <tr *ngFor="let falta of data">
-          <td>{{falta.nomeMateria}}</td>
-          <td>{{falta.faltas}}</td>
-          <td>{{falta.podeFaltar}}</td>
-          <td>{{falta.percentual}}%</td>
-        </tr>
-      </tbody>
-    </table>
+        <ion-card-content>
+          <p>📚 <strong>Matérias:</strong> Matemática, Inglês, Filosofia</p>
+          <p>🚦 <strong>Faltas restantes:</strong> ✅ 3</p>
+        </ion-card-content>
+      </ion-card>
+
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>Matéria</th>
+            <th>Faltas</th>
+            <th>Pode Faltar</th>
+            <th>Percentual</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let falta of data">
+            <td>{{ falta.nomeMateria }}</td>
+            <td>{{ falta.faltas }}</td>
+            <td>{{ falta.podeFaltar }}</td>
+            <td>{{ falta.percentual }}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
   </div>
 </ion-content>

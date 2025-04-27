@@ -4,6 +4,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 import { LoginForm } from '../model/login';
 import { environment } from 'src/environments/environment';
 import { FaltaDTO } from '../model/faltas';
+import { HorarioAluno } from '../model/HorarioAluno';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,13 @@ export class LoginService {
     return this.http
       .post<FaltaDTO[]>(
         `${environment.URL_BASE}/buscar-faltas`, cookie)
+      .pipe(catchError(this.handleError));
+  }
+
+  buscarHorario(cookie: string): Observable<HorarioAluno[]> {
+    return this.http
+      .post<HorarioAluno[]>(
+        `${environment.URL_BASE}/buscar-horario`, cookie)
       .pipe(catchError(this.handleError));
   }
 

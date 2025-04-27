@@ -92,8 +92,7 @@ export class Tab1Page implements OnInit {
         console.error('Erro no login:', error);
       },
       complete: () => {
-        this.carregando = false;
-        window.location.reload();
+        this.carregarDados();
       }
     });
   }

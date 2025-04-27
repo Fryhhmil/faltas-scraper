@@ -12,16 +12,44 @@
   max-width: 200px;
 }
 
+.card-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto; /* Centralizar */
+}
+
+.custom-card {
+  // width: 100%;
+  background-color: #1e1e1e; /* mesma cor de fundo da tabela */
+  color: #e0e0e0; /* cor do texto */
+}
+
+.custom-card ion-card-header {
+  text-align: center;
+}
+
+.custom-card ion-card-subtitle {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  letter-spacing: 5px;
+  color: #ccc;
+}
+
+.custom-card ion-card-content p {
+  margin: 5px 0;
+}
+
 .content-table {
+  margin-top: 20px; /* Espaço entre o card e a tabela */
   border-collapse: collapse;
-  /* margin: 25px 0; */
   font-size: 0.9em;
   min-width: 400px;
+  width: 100%;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-  background-color: #1e1e1e; /* fundo geral da tabela */
-  color: #e0e0e0; /* cor padrão do texto */
+  background-color: #1e1e1e;
+  color: #e0e0e0;
 }
 
 .content-table thead tr {
