@@ -22,7 +22,7 @@ export class Tab1Page implements OnInit {
   diaHoje = 'Indefinido';
   materiasHoje = 'Indefinido'
 
-  constructor(private storageService: StorageService, private router: Router, private loginService: LoginService) {
+  constructor(private storageService: StorageService, private loginService: LoginService, private router: Router,) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {

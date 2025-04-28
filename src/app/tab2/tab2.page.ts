@@ -4,8 +4,9 @@ import { LoginService } from '../services/login.service';
 import { HorarioAluno, HorarioAlunoDTO } from '../model/horarioAluno';
 import { LoginForm } from '../model/login';
 import { HttpErrorResponse } from '@angular/common/module.d-CnjH8Dlt';
-import { catchError, throwError } from 'rxjs';
+import { catchError, filter, throwError } from 'rxjs';
 import { LoadingController } from '@ionic/angular';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -26,8 +27,17 @@ export class Tab2Page implements OnInit {
   constructor(
     private storageService: StorageService,
     private loginService: LoginService,
-    private loadingCtrl: LoadingController
-  ) {}
+    private loadingCtrl: LoadingController,
+    private router: Router
+  ) {
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)
+      ).subscribe((event: NavigationEnd) => {
+        if (event.urlAfterRedirects === '/tabs/tab1') {
+          this.carregarDados();
+        }
+      });
+  }
 
   async ngOnInit(): Promise<void> {
     this.carregarDados();
