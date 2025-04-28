@@ -63,6 +63,7 @@ export class LoginComponent  implements OnInit {
       this.storageService.setLogin(value);
       this.storageService.setCookie({ cookie: retorno, dataCriacao: new Date() });
       this.buscarFaltas(retorno);
+      this.buscarHorario(retorno);
       },
       complete: async () => {
         this.router.navigate(['/']);
@@ -90,6 +91,26 @@ export class LoginComponent  implements OnInit {
     if(login && login.cpf != null) {
       this.router.navigate(['/']);
     }
+  }
+
+  buscarHorario(cookie: string): void {
+    this.loginService.buscarHorario(cookie).pipe(
+      catchError((e: HttpErrorResponse) => {
+        if (e.status === 406) {
+          this.storageService.removeCookie();
+        }
+        return throwError(() => e);
+      })
+    ).subscribe({
+      next: (retorno) => {
+      this.storageService.setCalendario(retorno);
+      },
+      error: (error) => {
+        console.error('Erro no login:', error);
+      },
+      complete: () => {
+      }
+    });
   }
 
 }
