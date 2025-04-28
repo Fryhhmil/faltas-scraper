@@ -4,7 +4,9 @@ import { catchError, Observable, throwError } from 'rxjs';
 import { LoginForm } from '../model/login';
 import { environment } from 'src/environments/environment';
 import { FaltaDTO } from '../model/faltas';
-import { HorarioAluno } from '../model/HorarioAluno';
+import { HorarioAluno, HorarioAlunoDTO } from '../model/HorarioAluno';
+import { StorageService } from './storage.service';
+import { DadosCookie } from '../model/DadosCookie';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,7 @@ export class LoginService {
 
   constructor(
     private http: HttpClient,
+    private storage: StorageService
   ) { }
 
   private handleError(errorResponse: HttpErrorResponse) {
@@ -37,11 +40,34 @@ export class LoginService {
       .pipe(catchError(this.handleError));
   }
 
-  buscarHorario(cookie: string): Observable<HorarioAluno[]> {
+  buscarHorario(cookie: string): Observable<HorarioAlunoDTO> {
     return this.http
-      .post<HorarioAluno[]>(
+      .post<HorarioAlunoDTO>(
         `${environment.URL_BASE}/buscar-horario`, cookie)
       .pipe(catchError(this.handleError));
   }
+
+  async getCookie(): Promise<DadosCookie> {
+    return await this.storage.getCookie();
+  }
+
+  async isCookieValid(): Promise<boolean> {
+    const cookieRetorno = await this.getCookie();
+
+    if (!cookieRetorno) {
+      return false;
+    }
+
+    const dataCriacao = new Date(cookieRetorno.dataCriacao);
+    const agora = new Date();
+    const limite = new Date(dataCriacao.getTime() + 35 * 60 * 1000); // 50 minutos depois da criação
+
+    if (agora > limite) {
+      return false;
+    }
+
+    return true;
+  }
+
 
 }

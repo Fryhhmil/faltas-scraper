@@ -61,6 +61,7 @@ export class LoginComponent  implements OnInit {
     ).subscribe({
       next: (retorno) => {
       this.storageService.setLogin(value);
+      this.storageService.setCookie({ cookie: retorno, dataCriacao: new Date() });
       this.buscarFaltas(retorno);
       },
       complete: async () => {

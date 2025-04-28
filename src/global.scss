@@ -32,6 +32,49 @@
  * https://ionicframework.com/docs/theming/dark-mode
  */
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+@import "@ionic/angular/css/palettes/dark.always.css";
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+// @import "@ionic/angular/css/palettes/dark.system.css";
+
+
+.content-table {
+  margin-top: 20px; /* Espaço entre o card e a tabela */
+  border-collapse: collapse;
+  font-size: 0.9em;
+  // min-width: 400px;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.content-table thead tr {
+  background-color: #339CFF;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #333333;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #2a2a2a;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #339CFF;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #339CFF;
+}

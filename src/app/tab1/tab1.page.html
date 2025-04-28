@@ -27,13 +27,13 @@
     <div class="card-container">
       <ion-card class="custom-card">
         <ion-card-header>
-          <ion-card-title>Segunda</ion-card-title>
-          <ion-card-subtitle>────────</ion-card-subtitle>
+          <ion-card-title>{{diaHoje}}</ion-card-title>
+          <ion-card-subtitle>Hoje</ion-card-subtitle>
         </ion-card-header>
 
         <ion-card-content>
-          <p>📚 <strong>Matérias:</strong> Matemática, Inglês, Filosofia</p>
-          <p>🚦 <strong>Faltas restantes:</strong> ✅ 3</p>
+          <p>📚 <strong>Matérias:</strong> {{materiasHoje}}</p>
+          <p>🚦 <strong>Faltas restantes:</strong> ✅ {{getFaltasHj()}}</p>
         </ion-card-content>
       </ion-card>
 

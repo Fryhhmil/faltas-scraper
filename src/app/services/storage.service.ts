@@ -3,7 +3,7 @@ import { Storage } from '@ionic/storage-angular';
 import { LoginForm } from '../model/login';
 import { FaltaDTO } from '../model/faltas';
 import { DadosCookie } from '../model/DadosCookie';
-import { HorarioAluno } from '../model/HorarioAluno';
+import { HorarioAluno, HorarioAlunoDTO } from '../model/HorarioAluno';
 
 
 @Injectable({
@@ -49,16 +49,20 @@ export class StorageService {
     await this._storage?.set('cookie', data);
   }
 
+  async removeCookie() {
+    await this._storage?.remove('cookie');
+  }
+
   async getCookie(): Promise<DadosCookie> {
     return await this._storage?.get('cookie');
   }
 
   // DADOS CALENDARIO
-  async setCalendario(data: HorarioAluno[]) {
+  async setCalendario(data: HorarioAlunoDTO) {
     await this._storage?.set('horario', data);
   }
 
-  async getCalendario(): Promise<HorarioAluno[]> {
+  async getCalendario(): Promise<HorarioAlunoDTO> {
     return await this._storage?.get('horario');
   }
 }

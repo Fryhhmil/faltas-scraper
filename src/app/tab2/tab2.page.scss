@@ -1,0 +1,23 @@
+/* Por padrão: mostra o texto completo, esconde o curto */
+.content-table thead .short {
+  display: none;
+}
+
+.content-table thead .full {
+  display: inline;
+  max-width: 10vw;
+}
+
+/* Quando a tela for pequena (tipo celular), inverte */
+@media (max-width: 600px) {
+  .content-table thead .short {
+    display: inline;
+  }
+  .content-table td {
+    max-width: 20vw;
+  }
+
+  .content-table thead .full {
+    display: none;
+  }
+}
