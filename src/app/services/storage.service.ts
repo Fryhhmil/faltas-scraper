@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import { LoginForm } from '../model/login';
 import { FaltaDTO } from '../model/faltas';
-import { DadosCookie } from '../model/DadosCookie';
-import { HorarioAluno, HorarioAlunoDTO } from '../model/HorarioAluno';
+import { DadosCookie } from '../model/dadosCookie';
+import { HorarioAlunoDTO } from '../model/horarioAluno';
 
 
 @Injectable({

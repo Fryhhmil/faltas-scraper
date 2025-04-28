@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../services/storage.service';
 import { LoginService } from '../services/login.service';
-import { HorarioAluno, HorarioAlunoDTO } from '../model/HorarioAluno';
+import { HorarioAluno, HorarioAlunoDTO } from '../model/horarioAluno';
 import { LoginForm } from '../model/login';
 import { HttpErrorResponse } from '@angular/common/module.d-CnjH8Dlt';
 import { catchError, throwError } from 'rxjs';

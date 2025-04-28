@@ -4,9 +4,9 @@ import { catchError, Observable, throwError } from 'rxjs';
 import { LoginForm } from '../model/login';
 import { environment } from 'src/environments/environment';
 import { FaltaDTO } from '../model/faltas';
-import { HorarioAluno, HorarioAlunoDTO } from '../model/HorarioAluno';
+import { HorarioAluno, HorarioAlunoDTO } from '../model/horarioAluno';
 import { StorageService } from './storage.service';
-import { DadosCookie } from '../model/DadosCookie';
+import { DadosCookie } from '../model/dadosCookie';
 
 @Injectable({
   providedIn: 'root'

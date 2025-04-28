@@ -6,7 +6,7 @@ import { catchError, filter, throwError } from 'rxjs';
 import { FaltaDTO } from '../model/faltas';
 import { LoginService } from '../services/login.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { HorarioAluno, HorarioAlunoDTO } from '../model/HorarioAluno';
+import { HorarioAluno, HorarioAlunoDTO } from '../model/horarioAluno';
 
 @Component({
   selector: 'app-tab1',
