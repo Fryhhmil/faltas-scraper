@@ -7,45 +7,48 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
+  <div class="main">
 
-  <table class="content-table">
-    <thead>
-      <tr>
-        <!-- <th class="col-hora">Hora</th> -->
-        <th><span class="full">Segunda</span><span class="short">S</span></th>
-        <th><span class="full">Terça</span><span class="short">T</span></th>
-        <th><span class="full">Quarta</span><span class="short">Q</span></th>
-        <th><span class="full">Quinta</span><span class="short">Q</span></th>
-        <th><span class="full">Sexta</span><span class="short">S</span></th>
-      </tr>
-    </thead>
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
 
-    <tbody>
-      <tr *ngFor="let horario of data.linhas">
-        <td>{{ horario.segunda.nome }}</td>
-        <td>{{ horario.terca.nome }}</td>
-        <td>{{ horario.quarta.nome }}</td>
-        <td>{{ horario.quinta.nome }}</td>
-        <td>{{ horario.sexta.nome }}</td>
-      </tr>
-      <tr style="color: #339CFF;">
-        <td>Pode faltar</td>
-        <td>Pode faltar</td>
-        <td>Pode faltar</td>
-        <td>Pode faltar</td>
-        <td>Pode faltar</td>
-      </tr>
-      <tr>
-        <td>{{data.podefaltarSegunda}} vezes</td>
-        <td>{{data.podefaltarTerca}} vezes</td>
-        <td>{{data.podefaltarQuarta}} vezes</td>
-        <td>{{data.podefaltarQuinta}} vezes</td>
-        <td>{{data.podefaltarSexta}} vezes</td>
-      </tr>
-    </tbody>
-  </table>
+    <table class="content-table">
+      <thead>
+        <tr>
+          <!-- <th class="col-hora">Hora</th> -->
+          <th><span class="full">Segunda</span><span class="short">S</span></th>
+          <th><span class="full">Terça</span><span class="short">T</span></th>
+          <th><span class="full">Quarta</span><span class="short">Q</span></th>
+          <th><span class="full">Quinta</span><span class="short">Q</span></th>
+          <th><span class="full">Sexta</span><span class="short">S</span></th>
+        </tr>
+      </thead>
 
+      <tbody>
+        <tr *ngFor="let horario of data.linhas">
+          <td>{{ horario.segunda.nome }}</td>
+          <td>{{ horario.terca.nome }}</td>
+          <td>{{ horario.quarta.nome }}</td>
+          <td>{{ horario.quinta.nome }}</td>
+          <td>{{ horario.sexta.nome }}</td>
+        </tr>
+        <tr style="color: #339CFF;">
+          <td>Pode faltar</td>
+          <td>Pode faltar</td>
+          <td>Pode faltar</td>
+          <td>Pode faltar</td>
+          <td>Pode faltar</td>
+        </tr>
+        <tr>
+          <td>{{data.podefaltarSegunda}} vezes</td>
+          <td>{{data.podefaltarTerca}} vezes</td>
+          <td>{{data.podefaltarQuarta}} vezes</td>
+          <td>{{data.podefaltarQuinta}} vezes</td>
+          <td>{{data.podefaltarSexta}} vezes</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
 </ion-content>

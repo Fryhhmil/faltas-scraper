@@ -43,7 +43,7 @@
   font-size: 0.9em;
   // min-width: 400px;
   width: 100%;
-  border-radius: 5px 5px 0 0;
+  border-radius: 10px 10px 10px 10px;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
   background-color: #1e1e1e;
@@ -70,9 +70,9 @@
   background-color: #2a2a2a;
 }
 
-.content-table tbody tr:last-of-type {
-  border-bottom: 2px solid #339CFF;
-}
+// .content-table tbody tr:last-of-type {
+//   border-bottom: 2px solid #339CFF;
+// }
 
 .content-table tbody tr.active-row {
   font-weight: bold;

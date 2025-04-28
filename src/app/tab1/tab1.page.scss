@@ -12,6 +12,10 @@
   max-width: 200px;
 }
 
+#logado {
+  padding: 20px;
+}
+
 .card-container {
   width: 100%;
   max-width: 800px;
@@ -22,6 +26,7 @@
   // width: 100%;
   background-color: #1e1e1e; /* mesma cor de fundo da tabela */
   color: #e0e0e0; /* cor do texto */
+  margin: 0%;
 }
 
 .custom-card ion-card-header {
@@ -37,4 +42,20 @@
 
 .custom-card ion-card-content p {
   margin: 5px 0;
+}
+
+.card-color {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.card-color p strong {
+  color: #9e9e9e;
+  font-size: 14;
+  margin-right: 4;
+}
+
+.card-color.green {
+  color: green;
 }
